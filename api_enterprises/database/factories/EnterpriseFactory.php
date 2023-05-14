@@ -11,7 +11,7 @@ $factory->define(Enterprise::class, function (Faker $faker) {
     $faker->addProvider(new Company($faker));
 
     return [
-        'name' => $faker->company,
+        'enterprise_name' => $faker->company,
         'description' => $faker->bs,
         'user_id' => function() {
             return factory(User::class)->create()->id;

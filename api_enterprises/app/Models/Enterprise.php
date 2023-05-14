@@ -19,7 +19,7 @@ class Enterprise extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'city',
+        'enterprise_name', 'description', 'city',
     ];
 
     public function user()

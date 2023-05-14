@@ -23,10 +23,9 @@ class EnterpriseController extends Controller
     public function store(EnterpriseRequest $request)
     {
         $validated = $request->validated();
-
         if ($validated) {
             $user = User::create($request->only(['name', 'email', 'password']));
-            $user->enterprises()->create($request->only(['enterprise_name' => 'name', 'description', 'city']));
+            $user->enterprises()->create($request->only(['enterprise_name', 'description', 'city']));
 
             return response()->json("Enterprise Created");
         }
@@ -40,7 +39,7 @@ class EnterpriseController extends Controller
             $user = User::find($enterprise->user_id);
 
             $enterprise->user()->associate($user)->save();
-            $enterprise->update($request->only(['enterprise_name' => 'name', 'description', 'city']));
+            $enterprise->update($request->only(['enterprise_name', 'description', 'city']));
 
             return response()->json("Enterprise Updated");
         }

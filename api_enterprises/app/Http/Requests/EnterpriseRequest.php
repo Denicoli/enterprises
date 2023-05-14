@@ -26,8 +26,8 @@ class EnterpriseRequest extends FormRequest
     {
         $userRules = (new UserRequest())->rules();
 
-        return array_merge($userRules, [
-            'enterprise_name' => ['required', 'min:3', 'max:20', 'string'],
+        return array_merge([], [
+            'enterprise_name' => ['required', 'min:3', 'max:20', 'string', 'unique:enterprises,enterprise_name'],
             'description' => ['required', 'min:3', 'max:30', 'string'],
             'city' => ['required', 'min:2', 'max:10', 'string'],
         ]);
