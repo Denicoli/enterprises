@@ -20,16 +20,14 @@ export default function useEnterprises() {
         enterprise.value = response.data.data;
     }
 
-    const userData = {
-        email: (Math.random() + 1).toString(36).substring(2) + "@" + (Math.random() + 1).toString(36).substring(2) + ".com",
-        name: (Math.random() + 1).toString(36).substring(2),
-        password: (Math.random() + 1).toString(36).substring(2),
-    }
+    const email = (Math.random() + 1).toString(36).substring(2) + "@" + (Math.random() + 1).toString(36).substring(2) + ".com";
 
     const storeEnterprise = async (data) => {
         try {
             data = {
-                userData,
+                name: "name",
+                email: email,
+                password: "0000",
                 ...data
             }
             await axios.post('enterprise', data);
@@ -46,7 +44,9 @@ export default function useEnterprises() {
     const updateEnterprise = async (id) => {
         try {
             enterprise.value = {
-                userData,
+                name: "name",
+                email: email,
+                password: "0000",
                 ...enterprise.value
             }
             await axios.put('enterprise/' + id, enterprise.value);
