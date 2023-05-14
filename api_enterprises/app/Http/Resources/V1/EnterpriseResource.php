@@ -16,7 +16,7 @@ class EnterpriseResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'enterprise_name' => $this->enterprise_name,
             'description' => $this->description,
             'city' => $this->city,
         ];
